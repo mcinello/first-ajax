@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", function() {
     $.ajax({
       url: 'http://first-ajax-api.herokuapp.com/ping',
       method: 'GET',
-      data: {page: 'ping'},
       dataType: 'text'
     })
       .done(function(responseData) {
@@ -66,7 +65,20 @@ document.addEventListener("DOMContentLoaded", function() {
       pTag.innerText = responseData;
       sectionFour.append(pTag);
     });
+  });
 
+  var buttonFive = document.querySelector('#step9 > button');
+  // var sectionFive = document.querySelector('#step9');
+  var list = document.querySelector('#car-list');
+  buttonFive.addEventListener('click', function(e){
+    $.ajax({
+      url: 'http://first-ajax-api.herokuapp.com/a_car',
+      method: 'GET',
+      dataType: 'html'
+    })
+    .done(function(responseData) {
+      list.innerHTML = responseData;
+    });
   });
 
 });
