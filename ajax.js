@@ -25,11 +25,14 @@ document.addEventListener("DOMContentLoaded", function() {
     //   pTag.innerText = responseData;
     //   sectionTwo.append(pTag)
     // })
-    .fail(function(){
-      var pTag = document.createElement('p');
-      pTag.innerText = "Sorry about that! I'll do better next time :3";
-      sectionTwo.append(pTag)
-    })
+  //   .fail(function(){
+  //     var pTag = document.createElement('p');
+  //     pTag.innerText = "Sorry about that! I'll do better next time :3";
+  //     sectionTwo.append(pTag)
+  // });
+    .always(function() {
+      console.log("Hey, the request finished!");
+    });
   });
 
 });
