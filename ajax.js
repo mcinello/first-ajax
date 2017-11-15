@@ -15,21 +15,23 @@ document.addEventListener("DOMContentLoaded", function() {
   var sectionTwo = document.querySelector('#step3456');
   buttonTwo.addEventListener('click', function(e) {
     $.ajax({
-      url: 'http://first-ajax-api.herokuapp.com/pong',
+      url: 'http://first-ajax-api.herokuapp.com/ping',
       method: 'GET',
       data: {page: 'ping'},
       dataType: 'text'
     })
-    // .done(function(responseData) {
-    //   var pTag = document.createElement('p');
-    //   pTag.innerText = responseData;
-    //   sectionTwo.append(pTag)
-    // })
-  //   .fail(function(){
-  //     var pTag = document.createElement('p');
-  //     pTag.innerText = "Sorry about that! I'll do better next time :3";
-  //     sectionTwo.append(pTag)
-  // });
+      .done(function(responseData) {
+      var pTag = document.createElement('p');
+      pTag.innerText = responseData;
+      sectionTwo.append(pTag)
+      console.log("p tag should be there");
+    })
+    .fail(function(){
+      var pTag = document.createElement('p');
+      pTag.innerText = "Sorry about that! I'll do better next time :3";
+      sectionTwo.append(pTag)
+      console.log("should get a 500 error");
+  })
     .always(function() {
       console.log("Hey, the request finished!");
     });
