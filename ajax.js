@@ -37,4 +37,19 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 
+  var buttonThree = document.querySelector('#step7 > button');
+  var sectionThree = document.getElementById('step7');
+  buttonThree.addEventListener('click', function(e) {
+    $.ajax({
+      url: 'http://first-ajax-api.herokuapp.com/count',
+      method: 'GET',
+      dataType: 'text'
+    })
+    .done(function(responseData) {
+      var pTag = document.createElement('p');
+      pTag.innerText = responseData;
+      sectionThree.append(pTag);
+    });
+  });
+
 });
