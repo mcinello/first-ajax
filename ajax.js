@@ -68,7 +68,6 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   var buttonFive = document.querySelector('#step9 > button');
-  // var sectionFive = document.querySelector('#step9');
   var list = document.querySelector('#car-list');
   buttonFive.addEventListener('click', function(e){
     $.ajax({
