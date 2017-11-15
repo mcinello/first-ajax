@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
 
   /* Your code goes here */
-  var button = document.querySelector('button');
-  button.addEventListener('click', function(e) {
+  var buttonOne = document.querySelector('button');
+  buttonOne.addEventListener('click', function(e) {
     $.ajax({
       url: 'http://first-ajax-api.herokuapp.com/',
       method: 'GET',
@@ -11,5 +11,20 @@ document.addEventListener("DOMContentLoaded", function() {
     })
   });
 
+  var buttonTwo = document.querySelector('#step3456 > button')
+  buttonTwo.addEventListener('click', function(e) {
+    $.ajax({
+      url: 'http://first-ajax-api.herokuapp.com/ping',
+      method: 'GET',
+      data: {page: 'ping'},
+      dataType: 'text'
+    })
+    .done(function(responseData) {
+      var sectionTwo = document.querySelector('#step3456');
+      var pTag = document.createElement('p');
+      pTag.innerText = responseData;
+      sectionTwo.append(pTag)
+    })
+  });
 
 });
