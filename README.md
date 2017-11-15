@@ -8,7 +8,7 @@ What HTTP method did your browser use to make the request?
 GET
 
 How many milliseconds did it take your browser to complete it?
-41.79 ms
+116 ms
 
 What HTTP status code did the server return? What does that mean?
 200 OK - request succeeded.
