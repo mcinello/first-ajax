@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-  /* Your code goes here */
-  var buttonOne = document.querySelector('button');
+  var buttonOne = document.querySelector('#step12 > button');
   buttonOne.addEventListener('click', function(e) {
     $.ajax({
       url: 'http://first-ajax-api.herokuapp.com/',
@@ -50,6 +49,24 @@ document.addEventListener("DOMContentLoaded", function() {
       pTag.innerText = responseData;
       sectionThree.append(pTag);
     });
+  });
+
+  var buttonFour = document.querySelector('#step8 > button');
+  var sectionFour = document.querySelector('#step8')
+  buttonFour.addEventListener('click', function(e) {
+
+    $.ajax({
+      url: 'http://first-ajax-api.herokuapp.com/time',
+      method: 'GET',
+      data: {timezone: 'Pacific/Honolulu'},
+      dataType: 'text'
+    })
+    .done(function(responseData) {
+      var pTag = document.createElement('p');
+      pTag.innerText = responseData;
+      sectionFour.append(pTag);
+    });
+
   });
 
 });
